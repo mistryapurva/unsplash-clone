@@ -1,0 +1,166 @@
+:root {
+  --border-gray: #ccc;
+  --black: #000;
+  --mask: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#__next {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.main {
+  padding: 1rem;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* SEARCH */
+.search-container {
+  padding: 0.5rem;
+}
+
+.search-bar {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid var(--border-gray);
+  font-size: 20px;
+  padding: 20px;
+}
+
+/* Loading Spinner - BEGIN */
+.loading-spinner-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mask);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-spinner-page-container {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 100%;
+}
+
+.loading-spinner {
+  height: 100%;
+  width: 100%;
+  max-width: 80px;
+  max-height: 80px;
+}
+.loading-spinner:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid var(--black);
+  border-color: var(--black) transparent var(--black) transparent;
+  animation: loading-spinner 1.2s linear infinite;
+}
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Loading Spinner - END */
+
+.image-container {
+  display: grid;
+  column-gap: 8px;
+  row-gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media screen and (max-width: 768px) {
+  .image-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .image-container {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* Image Card - BEGIN */
+.image-card {
+  width: 100%;
+  height: 350px;
+  padding: 10px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.image-metadata {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 16px;
+  background-color: var(--mask);
+  width: calc(100% - 20px);
+}
+
+.image-tag {
+  padding: 4px 8px;
+  margin-right: 8px;
+  margin-bottom: 4px;
+  background-color: var(--border-gray);
+  border-radius: 20px;
+}
+/* Image Card - END */
+
+/* Filters - BEGIN */
+.filter-bar {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.filter-label {
+  margin-right: 10px;
+  font-size: 14px;
+}
+/* Filters - END */
